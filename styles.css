@@ -1,0 +1,60 @@
+body{
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    background-color: #0D0208;
+}
+
+canvas {display:block;}
+
+.title{
+    width: 100%;
+    height: 8%;
+    background-color: #008F11;
+    color: #0D0208;
+}
+
+.title h1{
+    padding: 5px 0 0 2%;
+}
+
+.clock_circle{
+    border: #008F11 2px solid;
+    width: 450px;
+    height: 450px;
+    position: relative;
+    top: 50px;
+    margin: auto;
+    color: white;
+    border-radius: 50%;
+    background-color: #003B00;
+}
+
+#clock{
+    position: relative;
+    top: 10%;
+}
+
+#clock_day{
+    font-size: 50px;
+}
+
+#clock_time{
+    font-size: 70px;
+}
+
+#clock_year{
+    font-size: 30px;
+
+}
+
+.clock_item{
+    margin: 50px auto 50px auto;
+    width: fit-content;
+}
+
+.canvas-wrap { 
+    position: relative; 
+}
+.canvas_wrap canvas{
+    position:absolute; top:50; left:0; z-index:0 
+}
