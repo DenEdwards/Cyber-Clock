@@ -19,12 +19,11 @@ canvas {display:block;}
 
 .clock_circle{
     border: #008F11 2px solid;
-    width: 450px;
-    height: 450px;
-    position: relative;
-    top: 50px;
+    width: 500px;
+    height: 500px;
     margin: auto;
     color: white;
+    margin-top: 50px;
     border-radius: 50%;
     background-color: #003B00;
 }
