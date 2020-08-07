@@ -11,7 +11,7 @@
 <body>
     <div class="site">
         <div class="title">
-            <h1>Hello There!</h1>
+            <h1>Cyber Clock</h1>
         </div>
         <div class="canvas_wrap">
             <canvas id="background"></canvas>
@@ -22,7 +22,7 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="100000"> 
+                    <div class="carousel-item active" data-interval="false"> 
                         <div>
                             <div class="clock_circle">
                                 <div id="clock">
@@ -33,18 +33,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" data-interval="100000">
+                    <div class="carousel-item " data-interval="false">
                         <div>
                             <div class="clock_circle">
                                 <div id="clock">
-                                    <div id="clock_day" class="clock_item"></div>
-                                    <div id="clock_time" class="clock_item"></div>
-                                    <div id="clock_year" class="clock_item"></div>
-                                </div>
+                                    <div ><h1 class="timer_title">Timer</h1></div>
+                                    <div id="timer" class="clock_item">00:00:00</div>
+                                    <div class="timer_buttons">
+                                        <button id="start" class="timer_start buttons" onclick="time()">Start</button>
+                                        <button id="stop" class="timer_stop buttons time_start">Stop</button>
+                                        <button id="resume" class="timer_resume buttons time_start">Resume</button>
+                                        <button id="reset" class="timer_reset buttons time_start">Reset</button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" data-interval="100000">
+                    <div class="carousel-item" data-interval="false">
                         <div>
                             <div class="clock_circle">
                                 <div id="clock">

@@ -1,4 +1,12 @@
 var background = document.getElementById("background");
+var start = document.getElementById("start");
+var stop_btn = document.getElementById("stop");
+var resume = document.getElementById("resume");
+var reset = document.getElementById("reset");
+var t;
+var minutes = 0;
+var seconds = 0;
+var hours = 0;
 
 //clock
 function displayTime(){
@@ -20,6 +28,52 @@ function displayTime(){
     document.getElementById("clock_year").innerText = month+" "+numDay+", "+year;
 }
 
+//Start the timer
+function startTimer(){
+        seconds++;
+        if(seconds === 60){
+            minutes++;
+            seconds = 0;
+        }
+        if(minutes === 60){
+            hours++;
+            minutes = 0;
+        }
+        document.getElementById("timer").innerText =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+        time();
+}
+
+// start.onclick = start.style.display = "none";
+
+function time(){
+    start.style.display = "none";
+    stop_btn.style.display = "block";
+    resume.style.display = "none";
+    reset.style.display = "block";
+    t = setTimeout(startTimer, 1000)
+}
+
+/* Stop button */
+stop_btn.onclick = function() {
+    resume.style.display = "block";
+    clearTimeout(t);
+}
+
+/* Resume button */
+resume.onclick = function() {
+    time();
+}
+
+/* Reset button */
+reset.onclick = function() {
+    start.style.display = "block";
+    stop_btn.style.display = "none";
+    resume.style.display = "none";
+    reset.style.display = "none";
+    clearTimeout(t);
+    document.getElementById("timer").innerText = "00:00:00";
+    seconds = 0; minutes = 0; hours = 0;
+}
 
 //Matrix Background
 var ctx = background.getContext("2d");
