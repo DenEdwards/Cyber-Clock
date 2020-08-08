@@ -97,7 +97,7 @@ function startPomoTimer(){
             alert("This Session is Done!")
             alert("Time For a Break!");
             pomo_sec = 59;
-            pomo_min = 4;
+            pomo_min = 24;
             sessions++;
             break_flag = false;
         }else{
@@ -116,6 +116,13 @@ function startPomoTimer(){
         snd.play();
         alert("You're Finished!")
         flag = false;
+        pomo_sec = 59;
+        pomo_min = 24;
+        document.getElementById("pom_timer").style.display = "none";
+        document.getElementById("pom_session").style.display = "none";
+        document.getElementById("input_label").style.display = "initial";
+        document.getElementById("input").style.display = "initial";
+        document.getElementById("pomo").style.display = "initial";
         return;
     }else{
         document.getElementById("pom_timer").innerText =(pomo_min ? (pomo_min > 9 ? pomo_min : "0" + pomo_min) : "00") + ":" + (pomo_sec ? (pomo_sec > 9 ? pomo_sec : "0" + pomo_sec) : "00");
