@@ -15,7 +15,7 @@
         </div>
         <div class="canvas_wrap">
             <canvas id="background"></canvas>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" >
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -49,14 +49,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" data-interval="false">
+                    <div class="carousel-item " data-interval="false">
                         <div>
                             <div class="clock_circle">
                                 <div id="clock">
-                                    <div id="clock_day" class="clock_item"></div>
-                                    <div id="clock_time" class="clock_item"></div>
-                                    <div id="clock_year" class="clock_item"></div>
-                                </div>
+                                    <div ><h1 id="pom_intro" class="timer_title">Pomodoro</h1></div>
+                                    <div id="pom_session" class="pom_clock_ses">Session: </div>
+                                    <div id="pom_timer" class="pom_clock_item">00:00:00</div>
+                                    <div class="pom_form">
+                                            <label for="input" id="input_label">Number of Sessions</label>
+                                            <input value="1" autocomplete="off" onkeypress="return false;" type="number" name="input" id="input" min="1"> 
+                                            <button  id="pomo" class="buttons pomo_button" onclick="pomoStart()">Submit</button>      
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div>

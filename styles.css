@@ -30,8 +30,10 @@ canvas {display:block;}
 #clock{
     position: relative;
     top: 10%;
+    text-align: center;
 }
 
+/* Clock */
 #clock_day{
     font-size: 50px;
 }
@@ -42,18 +44,16 @@ canvas {display:block;}
 
 #clock_year{
     font-size: 30px;
-
 }
 
+/* Timer*/
 #timer{
     padding-top: 10px;
     font-size: 70px;
 }
 
 .timer_title{
-    font-size: 75px;
-    margin: auto;
-    width: 50%;
+    font-size: 58px;
 }
 
 .timer_buttons{
@@ -99,6 +99,33 @@ canvas {display:block;}
     width: fit-content;
 }
 
+/* Pomodoro Timer*/
+#input{
+    width: 22%;
+}
+
+.pom_form{
+    margin-top: 15%;
+    font-size: 30px;
+}
+
+.pomo_button{
+    margin-top: 35px;
+}
+
+.pom_clock_item{
+    margin-top: 15%;
+    font-size: 70px;
+    display: none;
+}
+
+.pom_clock_ses{
+    margin-top: 5%;
+    font-size: 50px;
+    display: none;
+}
+
+/* Background*/
 .canvas-wrap { 
     position: relative; 
 }

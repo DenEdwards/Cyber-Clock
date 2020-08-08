@@ -4,9 +4,17 @@ var stop_btn = document.getElementById("stop");
 var resume = document.getElementById("resume");
 var reset = document.getElementById("reset");
 var t;
+var pt;
 var minutes = 0;
 var seconds = 0;
 var hours = 0;
+var sessions;
+var pomo_sec;
+var pomo_min;
+var break_flag = true;
+var flag = false;
+var snd = new Audio("ping.mp3");
+
 
 //clock
 function displayTime(){
@@ -43,8 +51,6 @@ function startTimer(){
         time();
 }
 
-// start.onclick = start.style.display = "none";
-
 function time(){
     start.style.display = "none";
     stop_btn.style.display = "block";
@@ -73,6 +79,65 @@ reset.onclick = function() {
     clearTimeout(t);
     document.getElementById("timer").innerText = "00:00:00";
     seconds = 0; minutes = 0; hours = 0;
+}
+
+//Start the Pomo timer////////////////////////////////////
+function startPomoTimer(){
+    
+    pomo_sec--;
+    if(pomo_sec === -1){
+        pomo_min--;
+        pomo_sec = 59;
+    }
+    if(pomo_min === -1){
+        sessions--;
+
+        if(break_flag){
+            snd.play();
+            alert("This Session is Done!")
+            alert("Time For a Break!");
+            pomo_sec = 59;
+            pomo_min = 4;
+            sessions++;
+            break_flag = false;
+        }else{
+            snd.play();
+            alert("Your Break's Done!")
+            pomo_sec = 59;
+            pomo_min = 24;
+            break_flag = true;
+        }
+    }
+    if(sessions === 0){
+        pomo_sec = 0;
+        pomo_min = 0;
+        document.getElementById("pom_timer").innerText =(pomo_min ? (pomo_min > 9 ? pomo_min : "0" + pomo_min) : "00") + ":" + (pomo_sec ? (pomo_sec > 9 ? pomo_sec : "0" + pomo_sec) : "00");
+        document.getElementById("pom_session").innerText = "Session: "+sessions;
+        snd.play();
+        alert("You're Finished!")
+        flag = false;
+        return;
+    }else{
+        document.getElementById("pom_timer").innerText =(pomo_min ? (pomo_min > 9 ? pomo_min : "0" + pomo_min) : "00") + ":" + (pomo_sec ? (pomo_sec > 9 ? pomo_sec : "0" + pomo_sec) : "00");
+        document.getElementById("pom_session").innerText = "Sessions: "+sessions;
+        pomoStart();
+    }
+}
+
+//Pomodoro
+function pomoStart(){
+    document.getElementById("pom_timer").style.display = "block";
+    document.getElementById("pom_session").style.display = "block";
+    document.getElementById("input_label").style.display = "none";
+    document.getElementById("input").style.display = "none";
+    document.getElementById("pomo").style.display = "none";
+    if(!flag){
+        sessions = document.getElementById("input").value;
+        pomo_sec = 59;
+        pomo_min = 24;
+        flag =true;
+    }
+    pt = setTimeout(startPomoTimer, 1000)
 }
 
 //Matrix Background
