@@ -126,7 +126,7 @@ function startPomoTimer(){
         return;
     }else{
         document.getElementById("pom_timer").innerText =(pomo_min ? (pomo_min > 9 ? pomo_min : "0" + pomo_min) : "00") + ":" + (pomo_sec ? (pomo_sec > 9 ? pomo_sec : "0" + pomo_sec) : "00");
-        document.getElementById("pom_session").innerText = "Sessions: "+sessions;
+        document.getElementById("pom_session").innerText = "Session: "+sessions;
         pomoStart();
     }
 }
